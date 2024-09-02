@@ -3,6 +3,12 @@
 - From - 2nd September 2024
 - Duration - 3 days
 
+## Attendance
+
+Scan this QR code for attendance (all 3 days)
+
+![Attendance QR](./attendance.png)
+
 ## Curriculum
 
 **Course Objectives:**

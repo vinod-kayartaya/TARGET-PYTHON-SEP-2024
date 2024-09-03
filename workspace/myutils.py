@@ -60,10 +60,29 @@ def lined(fn):
     
     return wrapper
 
-def repeat(n):
-    def wrapper(fn):
-        for _ in range(n):
-            fn()
-        return fn
+def repeat(n=10):
+    def decorator(fn):
+        def wrapper(*args, **kwargs):
+            for _ in range(n):
+                fn(*args, **kwargs)
+        return wrapper
+    return decorator
 
-    return wrapper
+def args_to_uppercase(fn):
+    def decorator(*args, **kwargs):
+        new_args = []
+        for each_arg in args:
+            if isinstance(each_arg, str):
+                new_args.append(each_arg.upper())
+            else:
+                new_args.append(each_arg)
+        
+        new_kwargs = {}
+        for key, val in kwargs.items():
+            if isinstance(val, str):
+                new_kwargs[key] = val.upper()
+            else:
+                new_kwargs[key] = val
+        fn(*new_args, **new_kwargs)
+
+    return decorator

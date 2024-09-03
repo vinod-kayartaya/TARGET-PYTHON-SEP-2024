@@ -3,10 +3,15 @@ from myutils import dir2
 
 
 class Person:
+    
     def __init__(self, **kwargs) -> None:
+        for each_key in kwargs.keys():
+            if each_key not in ['name', 'email', 'city']:
+                raise KeyError('Keys must be one of name, email, city')
+
         self.name = kwargs.get('name')
         self.email = kwargs.get('email')
-        self.city = kwargs.get('city')
+        self.city = kwargs.get('city', 'Bangalore')
 
     def __str__(self) -> str:
         return f'Person(name={self.name}, email={self.email}, city={self.city})'
@@ -24,7 +29,7 @@ class Person:
         print()
     
 if __name__ == '__main__':
-    p1 = Person(name='Vinod')
+    p1 = Person(name='Vinod', country='India')
     p2 = Person()
 
     p1.email='vinod@vinod.co'

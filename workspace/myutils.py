@@ -1,5 +1,4 @@
-import json
-
+import json, time
 
 def line(char='-', length=80):
     if not isinstance(char, str):
@@ -28,3 +27,25 @@ def to_float(s):
     except ValueError:
         return None
     
+
+def csv2json(csv_filename, json_filename=None):
+    if not csv_filename.lower().endswith('.csv'):
+        raise ValueError('You must supply a .csv filename as the first argument')
+    
+    if json_filename is None:
+        json_filename = f'{csv_filename[:-4]}.{time.time()}.json'
+
+    if not json_filename.lower().endswith('.json'):
+        raise ValueError('You must supply a .json filename as the second argument')
+
+    with open(csv_filename, encoding='utf-8') as file:
+        header = file.readline().strip().split(',')
+        data = []
+        for each_line in file:
+            values = each_line.strip().split(',')
+            d = dict(zip(header, values))
+            data.append(d)
+        
+    with open(json_filename, mode='wt', encoding='utf-8') as outfile:
+        json.dump(data, outfile, indent=4)
+        print(f'JSON data saved to {json_filename}')

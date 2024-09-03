@@ -1,4 +1,9 @@
-class Phone:
+class Comm:
+    def __init__(self) -> None:
+        super().__init__()
+        print('Comm.__init__() called')
+
+class Phone(Comm):
     def __init__(self) -> None:
         super().__init__()
         print('Phone.__init__() called')

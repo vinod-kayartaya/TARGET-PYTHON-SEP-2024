@@ -49,3 +49,21 @@ def csv2json(csv_filename, json_filename=None):
     with open(json_filename, mode='wt', encoding='utf-8') as outfile:
         json.dump(data, outfile, indent=4)
         print(f'JSON data saved to {json_filename}')
+
+
+def lined(fn):
+    def wrapper():
+        print('-'*50)
+        retval = fn()
+        print('-'*50)
+        return retval 
+    
+    return wrapper
+
+def repeat(n):
+    def wrapper(fn):
+        for _ in range(n):
+            fn()
+        return fn
+
+    return wrapper

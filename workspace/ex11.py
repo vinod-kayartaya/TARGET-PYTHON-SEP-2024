@@ -9,7 +9,7 @@ def main():
     r = requests.get(url)
 
     if r.status_code != 200:
-        print(r.json())
+        print(r.text)
         exit(r.status_code)
 
     data = r.json()

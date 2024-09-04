@@ -1,0 +1,3 @@
+GET /?apikey=aa9e49f&s=iron
+Host: omdbapi.com
+Accept: application/json

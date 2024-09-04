@@ -3,10 +3,12 @@ class Comm:
         super().__init__()
         print('Comm.__init__() called')
 
+
 class Phone(Comm):
     def __init__(self) -> None:
         super().__init__()
         print('Phone.__init__() called')
+
 
 class MobilePhone(Phone):
     def __init__(self) -> None:
@@ -16,6 +18,7 @@ class MobilePhone(Phone):
     def fn(self):
         print('MobilePhone.fn() called')
 
+
 class Camera:
     def __init__(self) -> None:
         super().__init__()
@@ -24,10 +27,12 @@ class Camera:
     def fn(self):
         print('Camera.fn() called')
 
+
 class SmartPhone(Camera, MobilePhone):
     def __init__(self) -> None:
         super().__init__()
         print('SmartPhone.__init__() called')
+
 
 if __name__ == '__main__':
     sp = SmartPhone()

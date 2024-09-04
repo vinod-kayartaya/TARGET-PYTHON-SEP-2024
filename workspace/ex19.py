@@ -48,7 +48,7 @@ def process_shape(shape: Shape) -> None:
 
 
 if __name__ == '__main__':
-    t1 = Triangle(1.2, 3.4)
+    t1 = Triangle(base=1.2, height=3.4)
     c1 = Circle(3.4)
     s1 = "Vinod"
 
